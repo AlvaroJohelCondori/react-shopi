@@ -1,4 +1,5 @@
 import { useRoutes, BrowserRouter } from 'react-router-dom';
+import { ShoppingCartPrivider } from '../../Context';
 
 import Home from '../Home';
 import MyAccount from '../MyAccount';
@@ -8,6 +9,7 @@ import SignIn from '../SignIn';
 import NotFound from '../NotFound';
 
 import NavBar from '../../Components/NavBar';
+import CheckoutSideMenu from '../../Components/CheckoutSideMenu';
 
 import './App.css';
 
@@ -25,10 +27,13 @@ const AppRoutes = () => {
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <AppRoutes />
-      <NavBar />
-    </BrowserRouter>
+    <ShoppingCartPrivider>
+      <BrowserRouter>
+        <AppRoutes />
+        <NavBar />
+        <CheckoutSideMenu />
+      </BrowserRouter>
+    </ShoppingCartPrivider>
   );
 };
 
